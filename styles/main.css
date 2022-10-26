@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+}
+
+main {
+    margin: 10vh 15%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .state {
+    flex: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+main .state .profiles-container {
+    flex: 30%;
+    display: flex;
+}
+
+main .state .profiles-container .profile {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+main .state .profiles-container .profile .pic {
+    background-color: red;
+    align-self: stretch;
+    margin: 2px 0;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+main .state .moves-container {
+    flex: 50%;
+    display: flex;
+}
+
+main .state .moves-container .move {
+    flex: 50%;
+}
+
+main .state .result {
+    flex: 20%;
+}
+
+main .choices-container {
+    flex: 20%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+main .choices-container button {
+    background-color: red;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
