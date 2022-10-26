@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&family=Roboto&display=swap');
+:root {
+    --mint-cream: #EFF6EE;
+    --space-cadet: #273043;
+    --mystery-quest: 'Mystery Quest', cursive;
+    --roboto: 'Roboto', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
+}
+
+body {
+    background-image: url(../assets/bg.jpg);
 }
 
 main {
@@ -10,10 +22,12 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 32px;
+    background-color: rgba(239, 246, 238, 0.6);
 }
 
 main .state {
-    flex: 80%;
+    flex: 70%;
     display: flex;
     flex-direction: column;
 }
@@ -30,11 +44,12 @@ main .state .profiles-container .profile {
 }
 
 main .state .profiles-container .profile .pic {
-    background-color: red;
     align-self: stretch;
     margin: 2px 0;
     aspect-ratio: 1/1;
     border-radius: 50%;
+    background-size: cover;
+    background-position: center;
 }
 
 main .state .moves-container {
@@ -44,21 +59,66 @@ main .state .moves-container {
 
 main .state .moves-container .move {
     flex: 50%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main .state .result {
-    flex: 20%;
+    flex: 10%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--space-cadet);
+    font-family: var(--mystery-quest);
+    font-weight: bold;
+    font-size: x-large;
+}
+
+main .state .result span {
+    border-bottom: 1px solid var(--mint-cream);
+    padding-bottom: 8px
 }
 
 main .choices-container {
-    flex: 20%;
+    flex: 30%;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+main .choices-container .text {
+    flex: 30%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--space-cadet);
+    font-family: var(--roboto);
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+main .choices-container .btn-container {
+    flex: 70%;
     display: flex;
     align-content: stretch;
     justify-content: space-evenly;
 }
 
-main .choices-container button {
-    background-color: red;
+main .choices-container .btn-container button {
     aspect-ratio: 1/1;
     border-radius: 50%;
+    border: 2px solid var(--mint-cream);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+main .choices-container .btn-container button:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    transition: 0.3s;
 }
