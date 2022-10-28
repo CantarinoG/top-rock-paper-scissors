@@ -21,26 +21,28 @@
                 </div>
             </div>
             <div class=" moves-container ">
-                <div class="move" style="background-image: url(assets/scissors.png);"></div>
-                <div class="move" style="background-image: url(assets/rock.png);"></div>
+                <div class="move" id="move1"></div>
+                <div class="move" id="move2"></div>
             </div>
-            <div class="result ">
-                <span>You win! ROCK beats SCISSORS!</span>
+            <div class="result">
+                <span id="text-result"></span>
             </div>
         </div>
         <div class="choices-container ">
             <div class="text">
-                Score: <br> You: 2 | Monster: 3 <br> Choose your option:
+                Score: <br> <span id="score">You: 0 | Monster: 0 </span><br> Choose your option:
             </div>
             <div class="btn-container">
-                <button style="background-image: url(assets/rock.png);"></button>
-                <button style="background-image: url(assets/paper.png);"></button>
-                <button style="background-image: url(assets/scissors.png);"></button>
+                <button id="btn-rock" style="background-image: url(assets/rock.png);"></button>
+                <button id="btn-paper" style="background-image: url(assets/paper.png);"></button>
+                <button id="btn-scissors" style="background-image: url(assets/scissors.png);"></button>
             </div>
         </div>
 
     </main>
 
 </body>
+
+<script src="scripts/logic.js"></script>
 
 </html>
