@@ -11,51 +11,23 @@ let btnRock = document.querySelector('#btn-rock');
 let btnPaper = document.querySelector('#btn-paper');
 let btnScissors = document.querySelector('#btn-scissors');
 
-
-
-let playRock = () => {
-    playRound('ROCK', getComputerChoice());
+function reset() {
+    userScore = 0;
+    comScore = 0;
+    score.textContent = "You: 0 | Monster: 0";
+    result.textContent = "";
+    move1.style.backgroundImage = "";
+    move2.style.backgroundImage = "";
+    activateButtons();
 }
 
-let playPaper = () => {
-    playRound('PAPER', getComputerChoice());
-}
-
-let playScissors = () => {
-    playRound('SCISSORS', getComputerChoice());
-}
-
-activateButtons();
-
-function activateButtons() {
-    btnRock.addEventListener('click', playRock);
-
-
-    btnPaper.addEventListener('click', playPaper);
-
-
-    btnScissors.addEventListener('click', playScissors);
-}
-
-function ceaseButtons() {
-    btnRock.removeEventListener('click', playRock);
-
-
-    btnPaper.removeEventListener('click', playPaper);
-
-
-    btnScissors.removeEventListener('click', playScissors);
-}
-
-
-function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 3);
-    if (choice == 1) {
-        return 'ROCK';
-    } else if (choice == 2) {
-        return 'PAPER';
-    } else {
-        return 'SCISSORS'
+function endGame() {
+    if (userScore >= 5) {
+        result.innerHTML = 'You won! | <span style="text-decoration: underline; cursor: pointer;" onclick="reset();">PLAY AGAIN?</span>';
+        ceaseButtons();
+    } else if (comScore >= 5) {
+        result.innerHTML = 'You lost! | <span style="text-decoration: underline; cursor: pointer;" onclick="reset();">PLAY AGAIN?</span>';
+        ceaseButtons();
     }
 }
 
@@ -92,21 +64,50 @@ function playRound(playerSelection, computerSelection) {
 
     score.textContent = `You: ${userScore} | Monster: ${comScore} `;
 
-    if (userScore >= 5) {
-        result.innerHTML = 'You won! | <span style="text-decoration: underline; cursor: pointer;" onclick="reset();">PLAY AGAIN?</span>';
-        ceaseButtons();
-    } else if (comScore >= 5) {
-        result.innerHTML = 'You lost! | <span style="text-decoration: underline; cursor: pointer;" onclick="reset();">PLAY AGAIN?</span>';
-        ceaseButtons();
+    endGame();
+}
+
+function getComputerChoice() {
+    let choice = Math.floor(Math.random() * 3);
+    if (choice == 1) {
+        return 'ROCK';
+    } else if (choice == 2) {
+        return 'PAPER';
+    } else {
+        return 'SCISSORS'
     }
 }
 
-function reset() {
-    userScore = 0;
-    comScore = 0;
-    score.textContent = "You: 0 | Monster: 0";
-    result.textContent = "";
-    move1.style.backgroundImage = "";
-    move2.style.backgroundImage = "";
-    activateButtons();
+let playRock = () => {
+    playRound('ROCK', getComputerChoice());
+}
+
+let playPaper = () => {
+    playRound('PAPER', getComputerChoice());
+}
+
+let playScissors = () => {
+    playRound('SCISSORS', getComputerChoice());
+}
+
+function activateButtons() {
+    btnRock.addEventListener('click', playRock);
+
+
+    btnPaper.addEventListener('click', playPaper);
+
+
+    btnScissors.addEventListener('click', playScissors);
+}
+
+activateButtons();
+
+function ceaseButtons() {
+    btnRock.removeEventListener('click', playRock);
+
+
+    btnPaper.removeEventListener('click', playPaper);
+
+
+    btnScissors.removeEventListener('click', playScissors);
 }
